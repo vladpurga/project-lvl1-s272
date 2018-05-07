@@ -3,7 +3,7 @@
 ## Install
 
 ```sh
-$ npm install -g vladpurga-learn-brain-games
+$ npm install -g vp-learn-brain-games
 ```
 
 ## Start
