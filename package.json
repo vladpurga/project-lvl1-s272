@@ -1,8 +1,7 @@
 {
   "name": "vp-learn-brain-games",
-  "version": "0.0.3",
-  "description": "",
-  "main": "dist/index.js",
+  "version": "0.0.4",
+  "description": "Awesome command line games",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
@@ -10,10 +9,10 @@
     "dist"
   ],
   "scripts": {
-    "babel-node": "./node_modules/.bin/babel-node",
-    "build": "NODE_ENV=production ./node_modules/.bin/babel src --out-dir dist --source-maps inline",
+    "babel-node": "babel-node",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build",
-    "eslint": "./node_modules/.bin/eslint src"
+    "eslint": "eslint"
   },
   "repository": {
     "type": "git",
