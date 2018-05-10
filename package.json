@@ -1,10 +1,11 @@
 {
   "name": "vp-learn-brain-games",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Awesome command line games",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
-    "brain-even": "dist/bin/brain-even.js"
+    "brain-even": "dist/bin/brain-even.js",
+    "brain-calc": "dist/bin/brain-calc.js"
   },
   "files": [
     "dist"
