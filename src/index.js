@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
 import { game as gameBrainEven, description as descBrainEven } from './games/even';
 import { game as gameBrainCalc, description as descBrainCalc } from './games/calc';
+import { game as gameBrainGCD, description as descBrainGCD } from './games/gcd';
 
 const playGame = (game, description) => {
   console.log('Welcome to the Brain Games!');
@@ -29,5 +30,7 @@ const playBrainEven = () => playGame(gameBrainEven, descBrainEven);
 
 const playBrainCalc = () => playGame(gameBrainCalc, descBrainCalc);
 
-export { welcome, playBrainEven, playBrainCalc };
+const playBrainGCD = () => playGame(gameBrainGCD, descBrainGCD);
+
+export { welcome, playBrainEven, playBrainCalc, playBrainGCD };
 
