@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import { getRandomInt, checkAnswers, isEven } from '../utils';
+import { playGame } from '..';
 
 const description = 'Answer "yes" if number even otherwise answer "no".';
 
@@ -18,4 +19,4 @@ const game = () => {
   return true;
 };
 
-export { game, description };
+export default () => playGame(game, description);

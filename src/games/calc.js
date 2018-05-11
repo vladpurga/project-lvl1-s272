@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import { getRandomInt, checkAnswers } from '../utils';
+import { playGame } from '..';
 
 const description = 'What is the result of the expression?';
 
@@ -39,4 +40,4 @@ const game = () => {
   return true;
 };
 
-export { game, description };
+export default () => playGame(game, description);

@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import { getRandomInt, checkAnswers } from '../utils';
+import { playGame } from '..';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
@@ -29,4 +30,4 @@ const game = () => {
   return true;
 };
 
-export { game, description };
+export default () => playGame(game, description);
