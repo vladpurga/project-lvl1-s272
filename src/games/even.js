@@ -1,22 +1,16 @@
-import readlineSync from 'readline-sync';
-import { getRandomInt, checkAnswers, isEven } from '../utils';
 import { playGame } from '..';
+import getRandomInt from '../utils';
 
 const description = 'Answer "yes" if number even otherwise answer "no".';
 
-const game = () => {
-  const countQuestions = 3;
-  for (let i = 0; i < countQuestions; i += 1) {
-    const guess = getRandomInt(100);
-    console.log(`Question: ${guess}`);
-    const answer = readlineSync.question('Your answer? ');
-    const correctAnswer = isEven(guess) ? 'yes' : 'no';
+const isEven = number => number % 2 === 0;
 
-    if (!checkAnswers(answer, correctAnswer)) {
-      return false;
-    }
-  }
-  return true;
+const game = () => {
+  const guess = getRandomInt(100);
+  const question = String(guess);
+  const answer = isEven(guess) ? 'yes' : 'no';
+
+  return { question, answer };
 };
 
 export default () => playGame(game, description);

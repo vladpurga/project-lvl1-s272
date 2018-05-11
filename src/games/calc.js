@@ -1,6 +1,5 @@
-import readlineSync from 'readline-sync';
-import { getRandomInt, checkAnswers } from '../utils';
 import { playGame } from '..';
+import getRandomInt from '../utils';
 
 const description = 'What is the result of the expression?';
 
@@ -24,20 +23,13 @@ const evalCalcExpression = (operator, operand1, operand2) => {
 
 const game = () => {
   const operators = ['+', '-', '*'];
-  for (let i = 0; i < operators.length; i += 1) {
-    const operator = operators[i];
-    const operand1 = getRandomInt(100);
-    const operand2 = getRandomInt(100);
-    const expression = `${operand1} ${operator} ${operand2}`;
-    console.log(`Question: ${expression} `);
-    const answer = readlineSync.question('Your answer? ');
-    const correctAnswer = evalCalcExpression(operator, operand1, operand2);
+  const operator = operators[getRandomInt(operators.length)];
+  const operand1 = getRandomInt(100);
+  const operand2 = getRandomInt(100);
+  const question = `${operand1} ${operator} ${operand2}`;
+  const answer = evalCalcExpression(operator, operand1, operand2);
 
-    if (!checkAnswers(Number(answer), correctAnswer)) {
-      return false;
-    }
-  }
-  return true;
+  return { question, answer };
 };
 
 export default () => playGame(game, description);

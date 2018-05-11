@@ -1,6 +1,5 @@
-import readlineSync from 'readline-sync';
-import { getRandomInt, checkAnswers } from '../utils';
 import { playGame } from '..';
+import getRandomInt from '../utils';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
@@ -15,19 +14,12 @@ const gcd = (a, b) => {
 };
 
 const game = () => {
-  const countQuestions = 3;
-  for (let i = 0; i < countQuestions; i += 1) {
-    const number1 = getRandomInt(100);
-    const number2 = getRandomInt(100);
-    console.log(`Question: ${number1} ${number2}`);
-    const answer = readlineSync.question('Your answer? ');
-    const correctAnswer = gcd(number1, number2);
+  const number1 = getRandomInt(100);
+  const number2 = getRandomInt(100);
+  const question = `${number1} ${number2}`;
+  const answer = gcd(number1, number2);
 
-    if (!checkAnswers(Number(answer), correctAnswer)) {
-      return false;
-    }
-  }
-  return true;
+  return { question, answer };
 };
 
 export default () => playGame(game, description);
