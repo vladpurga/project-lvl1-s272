@@ -21,8 +21,9 @@ const evalCalcExpression = (operator, operand1, operand2) => {
   return result;
 };
 
+const operators = ['+', '-', '*'];
+
 const game = () => {
-  const operators = ['+', '-', '*'];
   const operator = operators[getRandomInt(operators.length)];
   const operand1 = getRandomInt(100);
   const operand2 = getRandomInt(100);
