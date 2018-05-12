@@ -1,5 +1,5 @@
-import { playGame } from '..';
-import getRandomInt from '../utils';
+import playGame from '../engine';
+import { getRandomInt } from '../utils';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
@@ -17,7 +17,7 @@ const game = () => {
   const number1 = getRandomInt(100);
   const number2 = getRandomInt(100);
   const question = `${number1} ${number2}`;
-  const answer = gcd(number1, number2);
+  const answer = String(gcd(number1, number2));
 
   return { question, answer };
 };
