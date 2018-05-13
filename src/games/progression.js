@@ -6,21 +6,18 @@ import getRandomInt from '../utils';
 const description = 'What number is missing in this progression?';
 
 const randomProgression = (start, step, length) => {
-  let guess;
   const guessIndex = getRandomInt(length);
 
-  const iter = (count, acc) => {
+  const iter = (count, acc, guess) => {
     const item = start + (step * count);
-    if (count === guessIndex) {
-      guess = item;
-    }
+    const newGuess = (count === guessIndex) ? item : guess;
     if (count > length) {
-      return { progression: acc, guess };
+      return { progression: acc, guess: newGuess };
     }
-    return iter(count + 1, cons(item, acc));
+    return iter(count + 1, cons(item, acc), newGuess);
   };
 
-  return iter(1, cons(start, null));
+  return iter(1, cons(start, null), start);
 };
 
 const toQuestion = (progression, guess) => {

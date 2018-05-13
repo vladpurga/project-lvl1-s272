@@ -22,7 +22,7 @@ const playRounds = (game) => {
 
 const playGame = (game, description) => {
   console.log('Welcome to the Brain Games!');
-  console.log(`${description}`);
+  console.log(description);
   console.log();
   const player = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${player}!`);

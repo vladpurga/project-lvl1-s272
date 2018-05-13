@@ -1,8 +1,6 @@
 // utils
 
-const getRandomInt = (lower_, upper_) => {
-  const lower = lower_ || 0;
-  const upper = upper_ || 1;
+const getRandomInt = (lower = 0, upper = 1) => {
   const min = Math.min(lower, upper);
   const max = Math.max(lower, upper) + 1;
 

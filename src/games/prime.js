@@ -4,6 +4,9 @@ import getRandomInt from '../utils';
 const description = 'Answer "yes" if number prime otherwise answer "no".';
 
 const isPrime = (number) => {
+  if (number <= 1) {
+    return false;
+  }
   if (number % 2 === 0) {
     return number === 2;
   }
