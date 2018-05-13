@@ -1,5 +1,5 @@
 import playGame from '../engine';
-import { getRandomInt } from '../utils';
+import getRandomInt from '../utils';
 
 const description = 'Answer "yes" if number even otherwise answer "no".';
 

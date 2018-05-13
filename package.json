@@ -1,6 +1,6 @@
 {
   "name": "vp-learn-brain-games",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Awesome command line games",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",

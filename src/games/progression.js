@@ -1,16 +1,22 @@
 import { cons, car, cdr, isPair } from 'hexlet-pairs';
 
 import playGame from '../engine';
-import { getRandomRange } from '../utils';
+import getRandomInt from '../utils';
 
 const description = 'What number is missing in this progression?';
 
 const randomProgression = (start, step, length) => {
+  let guess;
+  const guessIndex = getRandomInt(length);
+
   const iter = (count, acc) => {
-    if (count > length) {
-      return acc;
-    }
     const item = start + (step * count);
+    if (count === guessIndex) {
+      guess = item;
+    }
+    if (count > length) {
+      return { progression: acc, guess };
+    }
     return iter(count + 1, cons(item, acc));
   };
 
@@ -30,28 +36,12 @@ const toQuestion = (progression, guess) => {
   return iter(progression, '');
 };
 
-const getItem = (progression, index) => {
-  const iter = (tail, acc) => {
-    if (acc === index) {
-      return car(tail);
-    }
-    if (isPair(tail)) {
-      return iter(cdr(tail), acc + 1);
-    }
-    return null;
-  };
-
-  return iter(progression, 1);
-};
-
 const length = 10;
 
 const game = () => {
-  const start = getRandomRange(1, 100);
-  const step = getRandomRange(2, 6);
-  const progression = randomProgression(start, step, length);
-  const index = getRandomRange(2, length);
-  const guess = getItem(progression, index);
+  const start = getRandomInt(1, 100);
+  const step = getRandomInt(2, 6);
+  const { progression, guess } = randomProgression(start, step, length);
   const question = toQuestion(progression, guess);
   const answer = String(guess);
   // console.log(toString(progression));

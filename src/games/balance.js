@@ -1,5 +1,5 @@
 import playGame from '../engine';
-import { getRandomRange } from '../utils';
+import getRandomInt from '../utils';
 
 const description = 'Balance the given number.';
 
@@ -18,7 +18,7 @@ const balance = (number) => {
 };
 
 const game = () => {
-  const number = getRandomRange(100, 999);
+  const number = getRandomInt(100, 999);
   const question = `${number}`;
   const answer = String(balance(number));
   // console.log('correct answer: ', answer);

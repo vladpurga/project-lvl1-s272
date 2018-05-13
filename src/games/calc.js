@@ -1,5 +1,5 @@
 import playGame from '../engine';
-import { getRandomInt } from '../utils';
+import getRandomInt from '../utils';
 
 const description = 'What is the result of the expression?';
 
@@ -24,7 +24,7 @@ const evalCalcExpression = (operator, operand1, operand2) => {
 const operators = ['+', '-', '*'];
 
 const game = () => {
-  const operator = operators[getRandomInt(operators.length)];
+  const operator = operators[getRandomInt(0, operators.length - 1)];
   const operand1 = getRandomInt(100);
   const operand2 = getRandomInt(100);
   const question = `${operand1} ${operator} ${operand2}`;
