@@ -3,17 +3,18 @@ import { getRandomRange } from '../utils';
 
 const description = 'Balance the given number.';
 
+// TODO: fp-style
 const balance = (number) => {
-  const digits = String(number).split('').map(Number).sort();
+  let digits = String(number).split('').map(Number).sort();
   const upper = digits.length - 1;
 
-  if (digits[upper] - digits[0] <= 1) {
-    return digits.join('');
+  while (digits[upper] - digits[0] > 1) {
+    digits[0] += 1;
+    digits[upper] -= 1;
+    digits = digits.sort();
   }
-  digits[0] += 1;
-  digits[upper] -= 1;
 
-  return balance(digits.join(''));
+  return Number(digits.join(''));
 };
 
 const game = () => {
